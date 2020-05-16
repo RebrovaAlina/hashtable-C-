@@ -15,7 +15,7 @@ unsigned int hash1::hashtab_hash(char *key)
                 hashf = key[0];
         else
                 hashf = key[0] + key[len-1];
-        return hashf % 101;
+        return hashf % HASHTAB_SIZE;
 }
 
 hash1::hash1()
@@ -43,7 +43,7 @@ void hash1::hashtab_add(char *key, int value)
         throw STERR_NOADD;
 };
 
-hash1* hash1:: lookup( char *key)
+hash1* hash1::lookup( char *key)
 {
         int index;
         hash1 *node;
