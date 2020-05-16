@@ -6,13 +6,6 @@
 
 using namespace std;
 
-class hash_exp{
-        public:
-                int err;
-                std::string msg;
-};
-
-
 class hash1
 {
         public:
