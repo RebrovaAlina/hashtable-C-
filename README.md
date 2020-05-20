@@ -4,6 +4,10 @@
 
 Test_1	->	PASSED
 
+Node:Slon,190
+
+Node:Volk,60
+
 Test_2	->	PASSED
 
 Node:Slon,190
@@ -24,7 +28,7 @@ Test_6	->	FAILED
 
 Test_6	->	PASSED
 
-Can't delete the elemen
+Can't delete the element
 
 Test_7	->	FAILED
 
