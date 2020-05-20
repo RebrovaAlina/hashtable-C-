@@ -6,10 +6,19 @@
 
 using namespace std;
 
+template<typename V>
 class hash1
 {
+        private:
+                char *key;
+                V value;
+                hash1<V> *next;
+
         public:
-                enum hash_error{
+
+                hash1<V> *hashtab[HASHTAB_SIZE];
+                enum hash_error
+                {
                         STERR_SUCCESS,
                         STERR_FULL,
                         STERR_DELETED,
@@ -17,17 +26,18 @@ class hash1
                         STERR_DELETEDALL ,
                         STERR_NOADD
                 };
-                char *key;
-                int value;
-                hash1 *next;
-                hash1 *hashtab[HASHTAB_SIZE];
-
                 hash1();
-                void hashtab_add(char *key, int value);
+                void hashtab_add(char *key, V value);
                 void hash1_delete (char *key);
                 hash1 *lookup(char *key);
                 unsigned int hashtab_hash(char *key);
                 ~hash1();
                 char* resize_table(std::string key);
 
+
+                friend ostream &operator<<(ostream &output, const hash1<V>* node) {
+                        output<<"Node:"<<node->key<<","<< node->value<<endl;
+                        return output;
+                };
 };
+
