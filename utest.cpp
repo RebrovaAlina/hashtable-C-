@@ -1,14 +1,14 @@
-#include "hashtable.h"
+#include "hashtable.cpp"
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
 using namespace std;
 
 int main() {
-        hash1 *node;
+        hash1<double> *node;
         //Test 1 - create
         try {
-                node = new hash1();
+                node = new hash1<double>();
         } catch (...) {
                 cout << "Test_1\t->\tFAILED" << endl;
         }
