@@ -9,7 +9,7 @@
 using namespace std;
 
 
-template<typename V>
+template<class V>
 unsigned int hash1<V>::hashtab_hash(char *key)
 {
         int len = strlen(key), hashf = 0;
@@ -19,7 +19,7 @@ unsigned int hash1<V>::hashtab_hash(char *key)
                 hashf = key[0] + key[len-1];
         return hashf % 101;
 }
-template<typename V>
+template<class V>
 hash1<V>::hash1()
 {
         int i;
@@ -28,8 +28,7 @@ hash1<V>::hash1()
                 hashtab[i] = NULL;
         }
 };
-
-template<typename V>
+template<class V>
 void hash1<V>::hashtab_add(char *key, V value)
 {
         hash1<V> *node;
@@ -47,7 +46,9 @@ void hash1<V>::hashtab_add(char *key, V value)
         cerr<<"Can't add the element"<<endl;
         throw STERR_NOADD;
 };
-template<typename V>
+
+
+template<class V>
 hash1<V>* hash1<V>:: lookup( char *key)
 {
         int index;
@@ -65,7 +66,8 @@ hash1<V>* hash1<V>:: lookup( char *key)
         throw STERR_NOELEM;
         return NULL;
 };
-template<typename V>
+
+template<class V>
 void hash1<V>::hash1_delete(char *key)
 {
         int index;
@@ -88,7 +90,9 @@ void hash1<V>::hash1_delete(char *key)
         throw STERR_DELETED;
 }
 
-template<typename V>
+
+
+template<class V>
 hash1<V>::~hash1()
 {
         int index = 0;
@@ -114,7 +118,7 @@ hash1<V>::~hash1()
                 throw STERR_DELETEDALL;
         }
 }
-template<typename V>
+template<class V>
 char* hash1<V>::resize_table(std::string key)
 {
         key.resize(1);
