@@ -6,7 +6,7 @@
 
 using namespace std;
 
-template<typename V>
+template<class V>
 class hash1
 {
         private:
@@ -26,10 +26,11 @@ class hash1
                         STERR_DELETEDALL ,
                         STERR_NOADD
                 };
+
                 hash1();
                 void hashtab_add(char *key, V value);
                 void hash1_delete (char *key);
-                hash1 *lookup(char *key);
+                hash1<V> *lookup(char *key);
                 unsigned int hashtab_hash(char *key);
                 ~hash1();
                 char* resize_table(std::string key);
@@ -40,4 +41,3 @@ class hash1
                         return output;
                 };
 };
-
