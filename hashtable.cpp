@@ -39,7 +39,6 @@ void hash1<V>::hashtab_add(char *key, V value)
                 node->key = key;
                 node->value = value;
                 node->next = hashtab[index];
-                cout<<node<<endl;
                 hashtab[index] = node;
                 return;
         };
@@ -68,27 +67,24 @@ hash1<V>* hash1<V>:: lookup( char *key)
 };
 
 template<class V>
-void hash1<V>::hash1_delete(char *key)
+hash1<V>::~hash1()
 {
-        int index;
+        int index = 0;
+        int i = 0;
         hash1<V> *p;
-        hash1<V> *prev = NULL;
-        index = hashtab_hash(key);
-        for (p = hashtab[index]; p != NULL; p = p->next)
+        for (index = 0; index < HASHTAB_SIZE; index++)
         {
-                if (strcmp(p->key, key) == 0)
-                {
-                        if (prev == NULL)
-                                hashtab[index] = p->next;
-                        else prev->next = p->next;
-                        free(p);
-                        return;
-                }
-                prev = p;
+                p = hashtab[index];
+                free(p);
+                i++;
+        };
+        if(i==0)
+        {
+                cerr<<"No table"<<endl;
+                throw STERR_DELETEDALL;
         }
-        cerr<<"Can't delete the element"<<endl;
-        throw STERR_DELETED;
 }
+
 
 
 
