@@ -1,11 +1,16 @@
 # hashtable-C++
 
-Выполнение
+==17248== Memcheck, a memory error detector
+
+==17248== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+
+==17248== Using Valgrind-3.12.0.SVN and LibVEX; rerun with -h for copyright info
+
+==17248== Command: ./utest
+
+==17248== 
+
 Test_1	->	PASSED
-
-Node:Slon,190
-
-Node:Volk,60
 
 Test_2	->	PASSED
 
@@ -35,29 +40,30 @@ No such element
 
 Test_8	->	PASSED
 
+Test_10	->	PASSED
+
+Test_11	->	PASSED
+
 Test_9	->	PASSED
 
+==17248== 
 
-valgrin
+==17248== HEAP SUMMARY:
 
- ==12964== HEAP SUMMARY:
- 
-==12964==     in use at exit: 0 bytes in 0 blocks
+==17248==     in use at exit: 0 bytes in 0 blocks
 
-==12964==   total heap usage: 12 allocs, 12 frees, 78,538 bytes allocated
+==17248==   total heap usage: 14 allocs, 14 frees, 82,714 bytes allocated
 
-==12964== 
+==17248== 
 
-==12964== All heap blocks were freed -- no leaks are possible
+==17248== All heap blocks were freed -- no leaks are possible
 
-==12964== 
+==17248== 
 
-==12964== For counts of detected and suppressed errors, rerun with: -v
+==17248== For counts of detected and suppressed errors, rerun with: -v
 
-==12964== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==17248== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
-
-gcov
 
 File 'hashtable.cpp'
 
