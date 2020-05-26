@@ -89,31 +89,28 @@ hash1<V>::~hash1()
 
 
 template<class V>
-hash1<V>::~hash1()
+void hash1<V>::hash1_delete(char *key)
 {
-        int index = 0;
-        int i = 0;
+        int index;
         hash1<V> *p;
         hash1<V> *prev = NULL;
-        for (index = 0; index < HASHTAB_SIZE; index++)
+        index = hashtab_hash(key);
+        for (p = hashtab[index]; p != NULL; p = p->next)
         {
-                p = hashtab[index];
-                if(p!=NULL)
+                if (strcmp(p->key, key) == 0)
                 {
                         if (prev == NULL)
                                 hashtab[index] = p->next;
                         else prev->next = p->next;
                         free(p);
-                        i++;
-                };
+                        return;
+                }
                 prev = p;
-        };
-        if(i==0)
-        {
-                cerr<<"No table"<<endl;
-                throw STERR_DELETEDALL;
         }
+        cerr<<"Can't delete the element"<<endl;
+        throw STERR_DELETED;
 }
+
 template<class V>
 char* hash1<V>::resize_table(std::string key)
 {
